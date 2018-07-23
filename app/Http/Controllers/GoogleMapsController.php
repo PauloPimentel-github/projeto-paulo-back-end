@@ -10,11 +10,13 @@ use App\Models\GoogleMaps;
 class GoogleMapsController extends Controller
 {
 
-    private $maps;
+    private $mapAddress;
+    private $mapEvent;
 
     public function __construct()
     {
-        $this->maps = new GoogleMaps;
+        $this->mapAddress = new GoogleMaps;
+        $this->mapEvent = new GoogleMaps;
     }
 
     public function maps($customer_id)
@@ -24,13 +26,18 @@ class GoogleMapsController extends Controller
         $eventLocal = Event::find($customer_id);
 
         $data = array();
-        $data['customer_address'] = $addressCustomer['customer_address'];
-        $this->maps->setAddress($addressCustomer['customer_address']);
 
-        $data['customer_lat'] = $this->maps->getLatLng()->lat;
-        $data['customer_lng'] = $this->maps->getLatLng()->lng;
-        //$this->maps->getAddress();
-        //$this->maps->getLatLng()->lat
+        $data['customer_address'] = $addressCustomer['customer_address'];
+        $this->mapAddress->setAddress($addressCustomer['customer_address']);
+
+        $data['customer_lat'] = $this->mapAddress->getLatLng()->lat;
+        $data['customer_lng'] = $this->mapAddress->getLatLng()->lng;
+
+        $data['event_local'] = $eventLocal['event_local'];
+        $this->mapEvent->setAddress($data['event_local']);
+
+        $data['event_lat'] = $this->mapEvent->getLatLng()->lat;
+        $data['event_lng'] = $this->mapEvent->getLatLng()->lng;
         return $data;
     }
 
