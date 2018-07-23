@@ -24,11 +24,11 @@ class GoogleMapsController extends Controller
         $eventLocal = Event::find($customer_id);
 
         $data = array();
-        $data['address'] = $addressCustomer['customer_address'];
+        $data['customer_address'] = $addressCustomer['customer_address'];
         $this->maps->setAddress($addressCustomer['customer_address']);
 
-        $data['lat'] = $this->maps->getLatLng()->lat;
-        $data['lng'] = $this->maps->getLatLng()->lng;
+        $data['customer_lat'] = $this->maps->getLatLng()->lat;
+        $data['customer_lng'] = $this->maps->getLatLng()->lng;
         //$this->maps->getAddress();
         //$this->maps->getLatLng()->lat
         return $data;
