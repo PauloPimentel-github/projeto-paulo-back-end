@@ -39,29 +39,13 @@ return [
             'prefix' => '',
         ],
 
-        // 'mysql' => [
-        //     'driver' => 'mysql',
-        //     'host' => env('DB_HOST', '127.0.0.1'),
-        //     'port' => env('DB_PORT', '3306'),
-        //     'database' => env('DB_DATABASE', 'forge'),
-        //     'username' => env('DB_USERNAME', 'forge'),
-        //     'password' => env('DB_PASSWORD', ''),
-        //     'unix_socket' => env('DB_SOCKET', ''),
-        //     'charset' => 'utf8',
-        //     'collation' => 'utf8_general_ci',
-        //     'prefix' => '',
-        //     'strict' => true,
-        //     'engine' => null,
-        // ],
-
-        /* PRODUÇÂO */
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'wiad5ra41q8129zn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com'),
+            'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'epc6e5ttiwv8nc2w'),
-            'username' => env('DB_USERNAME', 'a77ryve2nj0tdd0f'),
-            'password' => env('DB_PASSWORD', 'unhz737rawyky6yd'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8',
             'collation' => 'utf8_general_ci',
@@ -69,6 +53,22 @@ return [
             'strict' => true,
             'engine' => null,
         ],
+
+        // /* PRODUÇÂO */
+        // 'mysql' => [
+        //     'driver' => 'mysql',
+        //     'host' => env('DB_HOST', 'wiad5ra41q8129zn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com'),
+        //     'port' => env('DB_PORT', '3306'),
+        //     'database' => env('DB_DATABASE', 'epc6e5ttiwv8nc2w'),
+        //     'username' => env('DB_USERNAME', 'a77ryve2nj0tdd0f'),
+        //     'password' => env('DB_PASSWORD', 'unhz737rawyky6yd'),
+        //     'unix_socket' => env('DB_SOCKET', ''),
+        //     'charset' => 'utf8',
+        //     'collation' => 'utf8_general_ci',
+        //     'prefix' => '',
+        //     'strict' => true,
+        //     'engine' => null,
+        // ],
 
         'pgsql' => [
             'driver' => 'pgsql',
