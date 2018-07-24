@@ -38,7 +38,7 @@ class CustomerController extends Controller
     $customer = Customer::findOrFail($id);
 
     if ($customer->update($request->all())) {
-      $json = array('status' => '1', 'success' => 'Cliente atualizado com sucesso !!');
+      $json = array('status' => '1', 'success' => 'Cliente atualizado com sucesso !!!');
       return $json;
     }
   }
