@@ -45,7 +45,9 @@ Route::get('/release-tables', ['uses' => 'ReleaseTableController@getEventsLocal'
 
 Route::get('/release-tables/{id}', ['uses' => 'ReleaseTableController@getEventsCustomer']);
 
-Route::post('/release-tables', ['uses' => 'ReleaseTableController@postTable']);
+Route::post('/release-tables', ['uses' => 'ReleaseTableController@postTables']);
+
+Route::put('/release-tables/{id}', ['uses' => 'ReleaseTableController@updateEventQuantTables']);
 
 /* ########################### REPORT TABLES ########################################## */
 

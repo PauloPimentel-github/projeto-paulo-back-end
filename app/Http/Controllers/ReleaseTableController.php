@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Event;
 use App\Models\Table;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ReleaseTableController extends Controller
 {
@@ -32,13 +34,39 @@ class ReleaseTableController extends Controller
         ->get();
     }
 
-    //cadastra mesas no banco
-    public function postTable(Request $request)
+    //cadastra mesas na tabela de lançamento de mesas
+    public function postTables(Request $request)
     {
         Table::create($request->all());
 
         $json = array('success' => 'Sucesso ao cadastrar mesa(s)!!');
 
         return $json;
+    }
+
+    //atualiza a quantidade de mesas na tabela de eventos
+    public function updateEventQuantTables(Request $request, $id)
+    {
+      $validator = Validator::make($request->all(), $this->validateForm($request));
+
+      if ($validator->fails()) {
+        return response($validator->errors()->all());
+      } else {
+        $event = Event::findOrFail($id);
+        $event->update($request->all());
+        $json = array('status' => '1', 'success' => 'A quantidade de mesas foi atualizada com sucesso !!!');
+        return $json;
+      }
+    }
+
+    //valida os campos do formulário
+    private function validateForm()
+    {
+      $rules = [
+        'event_id' => 'required',
+        'event_quant_mesas' => 'required|integer',
+      ];
+
+      return $rules;
     }
 }
